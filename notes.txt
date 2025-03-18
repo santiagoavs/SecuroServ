@@ -1,0 +1,25 @@
+67d98146584bc56a57862f45
+    "name": "Santiago",
+    "lastName": "Ávila",
+    "birhtday": "2007-01-28",
+    "email": "santiago4v5@gmail.com",
+    "address": "San Salvador",
+    "password": 12345678,
+    "hireDate": "2025-02-16",
+    "telephone": 1234566789,
+    "dui": 123456789,
+    "isVerified": true,
+    "issnumber": 123456789
+
+
+Colecciones:
+- Vehicles
+- Employees
+- Customers
+- Sales
+- Service
+- Citation
+
+.env:
+DB_URI="mongodb+srv://robertoagredainuyasha25:1234abcd@cluster0.cpspr.mongodb.net/SecuroServ?appName=Cluster0/"
+PORT="4000"
