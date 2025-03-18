@@ -28,6 +28,7 @@ const vehiclesSchema = new Schema(
     mileage: {
       type: Number,
       require: true,
+      min: 0,
     },
 
     manual: {
@@ -38,6 +39,7 @@ const vehiclesSchema = new Schema(
     price: {
       type: Number,
       require: true,
+      min: 0,
     },
   },
   {
