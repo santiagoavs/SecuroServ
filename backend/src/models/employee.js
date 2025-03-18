@@ -38,9 +38,15 @@ const employeeSchema = new Schema(
       require: true,
       min: 8,
     },
+
     hireDate: {
         type: String,
       },
+
+    sector: {
+      type: String,
+      require: true,
+    },
 
     telephone: {
         type: Number,

@@ -17,8 +17,56 @@ Colecciones:
 - Employees
 - Customers
 - Sales
-- Service
 - Citation
+
+Vehicles:
+- model: String
+- releaseDate: Date
+- brand: String
+- type: String
+- mileage: Number
+- manual: Boolean
+- description: String
+- price: Number
+
+Employees:
+- name: String
+- lastName: String
+- birthday: Date
+- email: String
+- address: String
+- password: String
+- hireDate: Date
+- telephone: Number
+- dui: String
+- issNumber: Number
+- sector: String
+
+Customers:
+- name: String
+- lastName: String
+- birthday: Date
+- email: String
+- password: String
+- telephone: Number
+- dui: String
+
+Citations:
+- citationDate: Date
+- idCustomer: id
+- idEmployee: id
+- idVehicle: id
+- Sale: boolean
+
+Sales:
+- saleDate: Date
+- paymentMethod: String
+- idVehicle: id
+- idCustomer: id
+- idEmployee: id
+- idCitation: id
+- serviceType: String
+
 
 .env:
 DB_URI="mongodb+srv://robertoagredainuyasha25:1234abcd@cluster0.cpspr.mongodb.net/SecuroServ?appName=Cluster0/"
