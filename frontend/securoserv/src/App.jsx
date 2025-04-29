@@ -7,7 +7,7 @@ function App() {
   const [showPriceFilter, setShowPriceFilter] = useState(false)
 
   const vehicles = [
-    { id: 1, name: 'Nissan Skyline R34', price: '$135,500', category: 'Destacados' },
+    { id: 1, name: 'Nissan Skyline R34', price: '$135,500', category: 'Destacados', image: 'nissan-skyline.png' },
     { id: 2, name: 'Toyota Supra MKA', price: '$35,500', category: 'Coupés' },
     { id: 3, name: 'Honda NSX 1990', price: '$270,000', category: 'Destacados' }
   ]
@@ -69,6 +69,7 @@ function App() {
           .map(vehicle => (
             <div key={vehicle.id} className="vehicle-card">
               <div className="vehicle-icon">
+                <img src={`/src/assets/${vehicle.image}`} alt={vehicle.name} className='vehicle-image'/>
                 <div className="image-placeholder"></div>
               </div>
               <div className="vehicle-info">
