@@ -25,7 +25,7 @@ function App() {
   return (
     <div className="secure-serv-container">
       <header className="app-header">
-        <h1>SecureServ</h1>
+        <h1>SecuroServ</h1>
       </header>
 
       <div className="category-filters">
