@@ -1,0 +1,166 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f5f7;
+  color: #333;
+  justify-content: center;
+}
+
+.secure-serv-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Encabezado */
+.app-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.app-header h1 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+/* Filtros de categoría */
+.category-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.filter-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  color: #666;
+}
+
+.filter-btn.active {
+  background-color: #3498db;
+  color: white;
+}
+
+.filter-btn span {
+  margin-top: 5px;
+  font-size: 0.9rem;
+}
+
+.category-icon {
+  font-size: 1.5rem;
+}
+
+/* Filtro de precio */
+.price-filter-container {
+  text-align: center;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.price-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  background-color: #ecf0f1;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.price-filter-btn:hover {
+  background-color: #d6eaf8;
+}
+
+.price-filter-btn span {
+  margin-left: 8px;
+}
+
+.price-filter-dropdown {
+  margin-top: 10px;
+}
+
+.price-selector {
+  padding: 8px 15px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  background-color: white;
+}
+
+/* Listado de vehículos */
+.vehicle-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  padding: 0 20px;
+}
+
+.vehicle-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.vehicle-card:hover {
+  transform: translateY(-5px);
+}
+
+.vehicle-icon {
+  height: 180px;
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-placeholder {
+  width: 80%;
+  height: 80%;
+  background-color: #e9ecef;
+  border-radius: 8px;
+}
+
+.vehicle-info {
+  padding: 20px;
+  text-align: center;
+}
+
+.vehicle-info h3 {
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+  color: #2c3e50;
+}
+
+.vehicle-price {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #27ae60;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .vehicle-list {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+  
+  .category-filters {
+    gap: 10px;
+  }
+  
+  .filter-btn {
+    padding: 8px 12px;
+  }
+}
