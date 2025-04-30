@@ -1,0 +1,43 @@
+.vehicle-card {
+    background-color: rgba(20, 20, 20, 0.9);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    padding: 16px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s;
+  }
+  
+  .vehicle-card:hover {
+    transform: scale(1.03);
+  }
+  
+  .vehicle-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+  
+  .vehicle-details {
+    margin-top: 12px;
+    text-align: center;
+  }
+  
+  .vehicle-name {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 6px;
+  }
+  
+  .vehicle-price {
+    background: linear-gradient(to right, #a00000, #ff3333);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: bold;
+  }
+  

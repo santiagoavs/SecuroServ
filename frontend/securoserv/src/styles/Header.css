@@ -1,0 +1,66 @@
+.main-header {
+    position: relative;
+    height: 300px;
+    background: url('/assets/header-bg.png');
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+  }
+  
+  .overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+  }
+  
+  .logo {
+    width: 300px;
+    margin-bottom: 10px;
+  }
+
+  .icon-buttons {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .icon-btn {
+    background-color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
+  .filter-button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 0; /* Quitar bordes redondeados */
+    background: linear-gradient(to right, #7a0000, #b30000);
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+
+  .filter-button:hover {
+    transform: scale(1.05);
+  }
+  
+  .header-car {
+    position: absolute;
+    right: 0px;
+    bottom: 0;
+    height: 250px;
+  }
+  

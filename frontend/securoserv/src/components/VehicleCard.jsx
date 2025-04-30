@@ -1,21 +1,15 @@
-import { FaCar } from 'react-icons/fa'
+import '../styles/VehicleCard.css';
 
-function VehicleCard({ vehicle }) {
-    return (
-      <div className="vehicle-card">
-        <div className="vehicle-image-container">
-          <img 
-            src={vehicle.image} 
-            alt={vehicle.name}
-            className="vehicle-image"
-            loading="lazy"
-          />
-        </div>
-        <div className="vehicle-info">
-          <h3>{vehicle.name}</h3>
-          <p className="vehicle-price">{vehicle.price}</p>
-        </div>
+function VehicleCard({ name, price, image }) {
+  return (
+    <div className="vehicle-card">
+      <img src={image} alt={name} className="vehicle-image" />
+      <div className="vehicle-details">
+        <h2 className="vehicle-name">{name}</h2>
+        <span className="vehicle-price">${price}</span>
       </div>
-    )
-  }
-export default VehicleCard
+    </div>
+  );
+}
+
+export default VehicleCard;
