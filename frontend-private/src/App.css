@@ -1,0 +1,96 @@
+body{
+  display: flex;
+  justify-content:safe;
+  background-image: url(./assets/images/Frame1.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-color: rgb(54, 0, 0);
+  display: flex;
+  padding: 0%;
+  margin: 0%;
+}
+.login{
+  width: 5%;
+  background-color: aliceblue;
+  border-radius: 100%;
+}
+.divLogin{
+  margin-top: 3%;
+  margin-left: 3%;
+}
+.securo{
+margin-top: 10%;
+margin-left: 6%;
+}
+.btnfiltrar{
+  border:30px solid ;
+  border-color: rgb(130,3,3);
+  background:rgb(130,3,3);
+  color: white;
+  font-size: 20px;
+}
+input[type='checkbox']{
+  appearance: none;
+}
+.lblfiltrar{
+  width: 200px;
+
+}
+.cbfiltrar::before{
+  content: "  +";
+background-size: 100%;
+}
+.cbfiltrar:checked::before{
+  content: "  -";
+background-size: 100%;
+}
+.menu{
+  background-color: rgba(0,0,0,0.5);
+  margin-top: 2%;
+  margin-bottom: 0%;
+margin-left: 5%;
+margin-right: -15%;
+padding-top: 2%;
+padding-right: 0%;
+padding-left: 2%;
+padding-bottom: 2%;
+flex-wrap: wrap;
+flex-direction: row;
+}
+.btnMenu{
+  background: linear-gradient(rgb(130,3,3),rgb(158,8,8),rgb(218,10,10));
+  border-radius: 0%;
+  width: 24%;
+  height: 80px;
+  margin: 0.25%;
+  font-size: 30px;
+  margin-bottom: 2%;
+}
+.btnMenu:focus{
+  color:rgb(130,3,3);
+  background: rgb(255, 255, 255);
+}
+.cardsCarros{
+  height: 120%;
+  width: 100%;
+  display:flex;
+  flex-wrap: wrap;
+}
+.card{
+  width: 310px;
+margin: 5px;
+border-radius: 0%;
+border: 1px solid white;
+}
+.headerCard{
+width: 50px;
+}
+.imgCar{
+width:310px;
+border: 1px solid black;
+}
+
+
+
+
+
