@@ -1,6 +1,7 @@
 import logo from '../images/logoCar/toyotalogo.png'
 import carro from '../images//imgCar/toyotacar.png'
 import infoCar from '../pages/infoCar'
+import addCar from './CreateVehicle'
 
 const body =()=>{
 return(
@@ -17,77 +18,12 @@ return(
 <button className="btnMenu">Picks-Ups</button>
     </div>
 
-
 <div className="cardsCarros"> 
- <a href={infoCar}> 
-    <div className="card" >
-    <div className="conten">
-        <div >
-            <img src={logo} alt=""className="headerCard" />
-        </div>
-        <div >
-            <img  src={carro} alt="" className="imgCar"/>
-        </div>
-        <div className="footerCard">
-            <p >
-                Toyota Sequoia 2025
-            </p>
-        </div>
-    </div>
- </div>
- </a> <a href=""> 
-    <div className="card" >
-    <div className="conten">
-        <div >
-            <img src={logo} alt=""className="headerCard" />
-        </div>
-        <div >
-            <img  src={carro} alt="" className="imgCar"/>
-        </div>
-        <div className="footerCard">
-            <p >
-                Toyota Sequoia 2025
-            </p>
-        </div>
-    </div>
- </div>
- </a> <a href=""> 
-    <div className="card" >
-    <div className="conten">
-        <div >
-            <img src={logo} alt=""className="headerCard" />
-        </div>
-        <div >
-            <img  src={carro} alt="" className="imgCar"/>
-        </div>
-        <div className="footerCard">
-            <p >
-                Toyota Sequoia 2025
-            </p>
-        </div>
-    </div>
- </div>
- </a>
-  <a href=""> 
-    <div className="card" >
-    <div className="conten">
-        <div >
-            <img src={logo} alt=""className="headerCard" />
-        </div>
-        <div >
-            <img  src={carro} alt="" className="imgCar"/>
-        </div>
-        <div className="footerCard">
-            <p >
-                Toyota Sequoia 2025
-            </p>
-        </div>
-    </div>
- </div>
- </a>
+
 </div>
-        <button className="btnMenu">Agregar carro</button>
-</div></div>
+        <button className="btnMenu" ><a href={addCar}>Agregar carro</a></button>
+</div>
+</div>
 
 )
 }

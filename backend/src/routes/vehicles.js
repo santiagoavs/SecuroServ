@@ -1,14 +1,17 @@
 import express from "express"
-import vehiclesController from "../controllers/vehiclesController.js"
+import vehiclesController from "../controllers/vehicleControler.js"
 
 const router = express.Router();
 
-router.route("/")
+router
+.route('/')
 .get(vehiclesController.getVehicle)
-.post(vehiclesController.insertVehicle);
+.post(vehiclesController.createVehicle);
 
-router.route("/:id")
+
+router
+ .route("/:id")
 .put(vehiclesController.updateVehicle)
 .delete(vehiclesController.deleteVehicle);
 
-export default router;
+export default router
