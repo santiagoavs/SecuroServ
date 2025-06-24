@@ -1,0 +1,86 @@
+/* CarDetails.css - Estilos específicos para thumbnails */
+
+/* Sobrescribir thumbnail gallery con !important para asegurar que funcione */
+.car-details-container .thumbnail-gallery {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-start; /* Cambié de space-between a flex-start */
+  max-width: none; /* Removí la restricción de max-width */
+  margin: 0;
+  flex-wrap: wrap;
+}
+
+/* Clase base para thumbnails - más específica */
+.car-details-container .car-thumbnail {
+  width: 120px !important;
+  height: 90px !important;
+  object-fit: cover !important;
+  border-radius: 10px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  flex: 0 0 auto;
+}
+
+/* Clase para thumbnails grandes - ESPECÍFICA */
+.car-details-container .car-thumbnail.large-thumb {
+  width: 200px !important;
+  height: 120px !important;
+}
+
+/* Clase para thumbnails extra grandes - ESPECÍFICA */
+.car-details-container .car-thumbnail.xl-thumb {
+  width: 200px !important;
+  height: 300px !important;
+}
+
+/* Clase para thumbnails medianos - ESPECÍFICA */
+.car-details-container .car-thumbnail.medium-thumb {
+  width: 150px !important;
+  height: 110px !important;
+}
+
+/* Estados activos y hover */
+.thumbnail-gallery .car-thumbnail:hover,
+.thumbnail-gallery .car-thumbnail.active {
+  border-color: #cc0000;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(204, 0, 0, 0.5);
+}
+
+  .car-gallery-section img{
+    width: 680px;
+}   
+
+/* Para móviles */
+@media (max-width: 768px) {
+  .car-details-container .thumbnail-gallery {
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  .car-details-container .car-thumbnail.large-thumb {
+    width: 160px !important;
+    height: 100px !important;
+  }
+  
+  .car-details-container .car-thumbnail.xl-thumb {
+    width: 140px !important;
+    height: 200px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .car-details-container .car-thumbnail.large-thumb {
+    width: 130px !important;
+    height: 80px !important;
+  }
+  
+  .car-details-container .car-thumbnail.xl-thumb {
+    width: 120px !important;
+    height: 160px !important;
+  }
+
+ 
+}

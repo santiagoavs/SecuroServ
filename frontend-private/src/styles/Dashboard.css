@@ -1,0 +1,112 @@
+.admin-dashboard {
+  min-height: 100vh;
+  background: linear-gradient(to right, #7f1d1d, #991b1b, #dc2626);
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.dashboard-overlay {
+  backdrop-filter: brightness(0.5);
+  min-height: 100vh;
+}
+
+.admin-content {
+  padding: 40px;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.dashboard-title {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.add-button {
+  padding: 10px 20px;
+  background-color: #991b1b;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.vehicle-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.vehicle-card-horizontal {
+  display: flex;
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+  align-items: center;
+}
+
+.vehicle-image-placeholder {
+  width: 120px;
+  height: 100px;
+  background-color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 14px;
+}
+
+.vehicle-info {
+  flex-grow: 1;
+  padding: 15px 20px;
+}
+
+.vehicle-model {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.vehicle-brand,
+.vehicle-price {
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+.vehicle-actions-horizontal {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 15px;
+}
+
+.edit-btn {
+  background-color: #2563eb;
+  color: white;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.delete-btn {
+  background-color: #dc2626;
+  color: white;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.admin-panel-container {
+  background-color: #141414;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.15);
+  border: 1px solid #c40909;
+}

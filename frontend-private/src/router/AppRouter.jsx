@@ -9,6 +9,7 @@ import Dashboard from '../pages/Dashboard';
 import Profile from '../pages/Profile';
 import NotFound from '../pages/NotFound';
 import CarDetailsPage from '../pages/CarDetails';
+import Dashboard from '../pages/admin/Dashboard';
 
 // Importar nueva página
 import ResetPassword from '../pages/ResetPassword';
@@ -24,7 +25,7 @@ const AppRouter = () => {
           {/* Rutas públicas de autenticación */}
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/ForgotPassword" element={<ForgotPassword />} />
           <Route path="/reset-password/:token" element={<ResetPassword />} />
           <Route path="/car-details/:id" element={<CarDetailsPage />} />
           

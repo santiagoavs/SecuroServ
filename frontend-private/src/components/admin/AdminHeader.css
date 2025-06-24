@@ -1,0 +1,36 @@
+.admin-header {
+  width: 100%;
+  height: 200px;
+  background-image: url('/assets/header-bg.png');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.admin-header-content {
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.admin-logo {
+  height: 120px;
+  object-fit: contain;
+}
+
+.admin-car {
+  position: absolute;
+  right: -260px;
+  bottom: -17px;
+  height: 230px;
+  object-fit: contain;
+  pointer-events: none;
+}

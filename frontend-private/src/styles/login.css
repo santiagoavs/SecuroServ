@@ -145,8 +145,8 @@ body {
 /* Container del formulario */
 .form-container {
   flex: 1;
-  display: grid;
-  align-items: end;
+  display: flex;
+  align-items: center;
   justify-content: center;
   padding: 40px;
   position: relative;

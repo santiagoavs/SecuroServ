@@ -11,12 +11,10 @@ const Register = () => {
     <div className="login-container">
       {/* Lado izquierdo - Imagen del auto */}
       <div className="login-left">
-        <div className="logo-container">
-          <div className="secuko-logo">
+        <div className="secuko-logo">
       <div className="secuko-main">SECURO</div>
       <div className="secuko-sub">Serv</div>
-    </div>
-        </div>
+      </div>
       </div>
 
       {/* Lado derecho - Formulario */}

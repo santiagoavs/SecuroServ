@@ -23,13 +23,13 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="login-form-container"> {/* Cambié aquí de login-form a login-form-container */}
+    <div className="login-form">
       <div className="form-header">
-        <h1 className="form-title">Bienvenido</h1> {/* Agregué clase form-title */}
-        <p className="form-subtitle">Ingresa tus datos para iniciar sesión</p> {/* Agregué clase form-subtitle */}
+        <h1>Bienvenido</h1>
+        <p>Ingresa tus datos para iniciar sesión</p>
       </div>
 
-      <form onSubmit={handleSubmit} className="login-form"> {/* Agregué clase aquí */}
+      <form onSubmit={handleSubmit}>
         <div className="form-group">
           <InputText
             label="Correo Electrónico"
@@ -56,15 +56,15 @@ const LoginForm = () => {
 
         <div className="form-links">
           <span>¿No tienes una cuenta? </span>
-          <a href="register" className="register-link">Regístrate ahora</a> {/* Cambié clase */}
+          <a href="/Register" className="link-register">Regístrate ahora</a>
         </div>
 
         <div className="form-links">
-          <a href="forgot-password" className="forgot-password-link">¿Olvidaste tu contraseña?</a> {/* Cambié clase */}
+          <a href="/ForgotPassword" className="link-forgot">¿Olvidaste tu contraseña?</a>
         </div>
 
-        <div className="form-actions"> {/* Cambié de form-submit a form-actions */}
-          <Button type="submit" variant="primary" className="btn btn-primary btn-full-width">
+        <div className="form-submit">
+          <Button type="submit" variant="primary">
             Ingresar
           </Button>
         </div>

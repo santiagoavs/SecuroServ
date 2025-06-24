@@ -123,7 +123,7 @@ const ResetPasswordForm = () => {
           <h2>Enlace inválido</h2>
           <ErrorMessage message={tokenValidation.error || 'El enlace de recuperación no es válido o ha expirado'} />
           <div className="mt-4">
-            <Link to="/forgot-password">
+            <Link to="/ForgotPassword">
               <Button type="button">
                 Solicitar nuevo enlace
               </Button>

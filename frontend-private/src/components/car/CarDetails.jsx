@@ -1,4 +1,5 @@
 import React from 'react';
+import './styles/CarDetails.css'
 
 const CarDetails = ({ car, onUpdatePurchase, onDeletePurchase }) => {
   if (!car) {
@@ -43,13 +44,13 @@ const CarDetails = ({ car, onUpdatePurchase, onDeletePurchase }) => {
               className="btn btn-primary"
               onClick={() => onUpdatePurchase && onUpdatePurchase(car)}
             >
-              Actualizar Compra
+              Actualizar
             </button>
             <button 
               className="btn btn-secondary"
               onClick={() => onDeletePurchase && onDeletePurchase(car)}
             >
-              Eliminar Compra
+              Eliminar
               <span className="btn-price">${car.reservePrice || '33,000'}</span>
             </button>
           </div>
@@ -65,11 +66,13 @@ const CarDetails = ({ car, onUpdatePurchase, onDeletePurchase }) => {
             />
           </div>
           <div className="thumbnail-gallery">
+            {/* Primera imagen - tamaño grande horizontal */}
             <img 
               src={car.image2 || '/images/cars/gallery/Syline-Lateral.png'} 
-              alt="Vista trasera"
-              className="car-thumbnail active"
+              alt="Vista lateral"
+              className="car-thumbnail-active-large-thumb"
             />
+                
           </div>
         </div>
       </div>
