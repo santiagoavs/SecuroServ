@@ -1,18 +1,21 @@
-import './App.css'
-import Header from './assets/componets/Header'
-import Body from './assets/componets/Body'
-import CreateVehicle from './assets/componets/CreateVehicle'
-import {BrowserRouter as Router,Route} from 'react-router-dom'
-import React from 'react'
-import Navigation from './assets/componets/navigation'
+// En src/App.jsx
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Login from "./pages/Login";
+import CarDetails from "./pages/CarDetails";
 
 function App() {
   return (
-    <Router>    
-      <Navigation/>
-      <Route path='/' Component={Header+Body}/>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/CarDetails" element={<CarDetails />} />
+        </Routes>
+      </div>
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;

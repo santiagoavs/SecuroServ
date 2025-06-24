@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
-import clientsModel from "../models/customer.js";
+import clientsModel from "../models/customers.js";
 import employeesModel from "../models/employee.js";
 import { sendEmail, HTMLRecoveryEmail } from "../utils/passwordRecoveryMail.js";
 import { config } from "../config.js";

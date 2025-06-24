@@ -1,0 +1,420 @@
+/* Car Details Styles */
+.car-details-page {
+  min-height: 100vh;
+  background-image: url('/images/cars/backgrounds/toyota-supra-mk4-jdm-wallpaper 1.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.car-details-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+.car-details-container {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Header */
+.car-details-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo-container {
+  display: inline-block;
+}
+
+.logo-text {
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-size: 4rem;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 
+    2px 2px 0px #cc0000,
+    4px 4px 8px rgba(0, 0, 0, 0.5);
+  margin: 0;
+  transform: perspective(500px) rotateX(15deg);
+}
+
+.logo-subtitle {
+  font-family: 'Brush Script MT', cursive;
+  font-size: 2.5rem;
+  color: #cc0000;
+  margin-left: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  font-style: italic;
+}
+
+/* Contenido principal */
+.car-details-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+/* Sección de información */
+.car-info-section {
+  background: linear-gradient(145deg, rgba(204, 0, 0, 0.9) 0%, rgba(153, 0, 0, 0.9) 100%);
+  border: 3px solid #cc0000;
+  border-radius: 15px;
+  width: 630px  ;
+  padding: 30px;
+  box-shadow: 
+    0 0 30px rgba(204, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.car-title-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.car-brand-logo {
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.brand-logo {
+  width: 60px;
+  height: auto;
+  object-fit: contain;
+}
+
+.car-title {
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  margin: 0;
+  flex: 1;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.car-price {
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.3);
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Descripción */
+.car-description {
+  margin-bottom: 40px;
+}
+
+.car-description p {
+  font-family: Arial, sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+/* Botones de acción */
+.car-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.btn {
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-size: 1.3rem;
+  font-weight: 900;
+  padding: 18px 30px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn-primary {
+  background: linear-gradient(145deg, #fff 0%, #e0e0e0 100%);
+  color: #000;
+  text-shadow: none;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(145deg, #f0f0f0 0%, #d0d0d0 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.btn-secondary {
+  background: linear-gradient(145deg, #000 0%, #333 100%);
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(145deg, #111 0%, #444 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+.btn-price {
+  font-size: 1.1rem;
+  color: #cc0000;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Galería de imágenes */
+.car-gallery-section {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.main-image {
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  border: 3px solid rgba(255, 255, 255, 0.1);
+}
+
+.car-main-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.main-image:hover .car-main-image {
+  transform: scale(1.05);
+}
+
+.thumbnail-gallery {
+  display: flex;
+  gap: 20px;
+  margin: 0 auto;
+}
+
+.thumbnail-gallery:hover .car-thumbnail {
+  transform: scale(1.05);
+}
+
+.car-thumbnail {
+  display: grid;
+  width: 660px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+.car-thumbnail.active {
+  border-color: #cc0000;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(204, 0, 0, 0.5);
+}
+
+/* Estados de carga y error */
+.car-details-page.loading,
+.car-details-page.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-spinner,
+.error-message {
+  text-align: center;
+  padding: 40px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 15px;
+  border: 2px solid #cc0000;
+}
+
+.loading-spinner p,
+.error-message p {
+  color: #fff;
+  font-size: 1.2rem;
+  margin: 20px 0 0 0;
+}
+
+.error-message h2 {
+  color: #cc0000;
+  font-size: 2rem;
+  margin: 0 0 20px 0;
+}
+
+.spinner {
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-left: 4px solid #cc0000;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .car-details-content {
+    gap: 40px;
+  }
+  
+  .logo-text {
+    font-size: 3rem;
+  }
+  
+  .logo-subtitle {
+    font-size: 2rem;
+  }
+  
+  .car-title {
+    font-size: 2.2rem;
+  }
+  
+  .car-price {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 968px) {
+  .car-details-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .car-title-section {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .car-title {
+    order: 1;
+  }
+  
+  .car-brand-logo {
+    order: 0;
+  }
+  
+  .car-price {
+    order: 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .car-details-container {
+    padding: 15px;
+  }
+  
+  .car-info-section {
+    padding: 25px;
+  }
+  
+  .logo-text {
+    font-size: 2.5rem;
+  }
+  
+  .logo-subtitle {
+    font-size: 1.5rem;
+    margin-left: 10px;
+  }
+  
+  .car-title {
+    font-size: 1.8rem;
+  }
+  
+  .car-price {
+    font-size: 1.6rem;
+    padding: 8px 15px;
+  }
+  
+  .btn {
+    font-size: 1.1rem;
+    padding: 15px 25px;
+  }
+  
+  .car-description p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .car-actions {
+    gap: 15px;
+  }
+  
+  .btn-secondary {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  
+  .thumbnail-gallery {
+    flex-wrap: wrap;
+  }
+  
+  .car-thumbnail {
+    width: 100px;
+    height: 70px;
+  }
+}

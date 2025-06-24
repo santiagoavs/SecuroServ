@@ -1,0 +1,336 @@
+/* src/styles/login.css */
+
+/* Reset y configuración base */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Container principal */
+.login-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Lado izquierdo - Imagen */
+.login-left {
+  flex: 1;
+  /* MANTÉN TU IMAGEN DE FONDO AQUÍ */
+  background-image: url('/images/cars/backgrounds/toyota-supra-mk4-jdm-wallpaper 1.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 40px;
+}
+
+/* Overlay sutil para mejorar contraste */
+.login-left::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
+  pointer-events: none;
+}
+
+/* Logo Container */
+.logo-container {
+  z-index: 2;
+  position: relative;
+}
+
+/* Logo SECUKO - Tamaño pequeño */
+.secuko-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+}
+
+.secuko-main {
+  font-family: 'Impact', 'Arial Black', Arial, sans-serif;
+  font-size: 48px; /* Reducido de 120px */
+  font-weight: 900;
+  color: #e8e8e8;
+  text-shadow: 
+    1px 1px 0px #666,
+    2px 2px 0px #333,
+    3px 3px 0px #000,
+    4px 4px 10px rgba(0,0,0,0.6);
+  letter-spacing: -1px;
+  margin: 0;
+  line-height: 0.9;
+  transform: perspective(300px) rotateX(10deg);
+}
+
+.secuko-sub {
+  font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
+  font-size: 20px; /* Reducido de 48px */
+  color: #dc143c;
+  text-shadow: 
+    1px 1px 2px rgba(0,0,0,0.8),
+    0 0 5px rgba(220, 20, 60, 0.3);
+  margin-left: 70px; /* Ajustado proporcionalmente */
+  margin-top: -8px;
+  font-style: italic;
+  font-weight: bold;
+  transform: rotate(-5deg);
+}
+
+/* Alternativa: Logo aún más pequeño */
+.logo-small .secuko-main {
+  font-size: 36px;
+}
+
+.logo-small .secuko-sub {
+  font-size: 16px;
+  margin-left: 50px;
+  margin-top: -6px;
+}
+
+/* Lado derecho - Formulario */
+.login-right {
+  flex: 1;
+  background: linear-gradient(135deg, #8B0000 0%, #4A0000 100%);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Navegación de tabs */
+.tab-navigation {
+  display: flex;
+  padding: 0;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.tab-button {
+  flex: 1;
+  padding: 20px 30px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-bottom: 3px solid transparent;
+}
+
+.tab-button:hover {
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.tab-button.active {
+  color: white;
+  background: transparent;
+  border-bottom: 3px solid #fff;
+}
+
+/* Container del formulario */
+.form-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  position: relative;
+}
+
+/* Formulario */
+.login-form,
+.register-form {
+  width: 100%;
+  max-width: 350px;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Header del formulario */
+.form-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-header h1 {
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.form-header p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 13px;
+  font-weight: 300;
+}
+
+/* Grupos de formulario */
+.form-group {
+  margin-bottom: 15px;
+}
+
+/* Input groups */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-label {
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.input-field::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.input-field:focus {
+  border-bottom-color: white;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.input-field.error {
+  border-bottom-color: #ff4444;
+}
+
+.error-message {
+  color: #ff4444;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* Links del formulario */
+.form-links {
+  text-align: center;
+  margin: 10px 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 13px;
+}
+
+.link-register,
+.link-forgot {
+  color: white;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.link-register:hover,
+.link-forgot:hover {
+  color: #ffcccc;
+}
+
+/* Submit button */
+.form-submit {
+  margin-top: 20px;
+}
+
+/* Botones */
+.btn {
+  width: 100%;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, #ff4444, #cc0000);
+  color: white;
+  box-shadow: 0 4px 15px rgba(255, 68, 68, 0.3);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(45deg, #ff6666, #ee0000);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 68, 68, 0.4);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+  }
+  
+  .login-left {
+    flex: 0 0 200px;
+    padding: 20px;
+  }
+  
+  .secuko-main {
+    font-size: 32px;
+  }
+  
+  .secuko-sub {
+    font-size: 14px;
+    margin-left: 45px;
+    margin-top: -5px;
+  }
+  
+  .login-right {
+    flex: 1;
+  }
+  
+  .form-container {
+    padding: 20px;
+  }
+  
+  .login-form,
+  .register-form {
+    padding: 20px 15px;
+  }
+  
+  .form-header h1 {
+    font-size: 20px;
+  }
+}

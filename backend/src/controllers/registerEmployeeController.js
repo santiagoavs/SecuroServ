@@ -1,5 +1,5 @@
 import { config } from "../config.js";
-import employeesModel from "../models/Employees.js";
+import employeesModel from "../models/employee.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
