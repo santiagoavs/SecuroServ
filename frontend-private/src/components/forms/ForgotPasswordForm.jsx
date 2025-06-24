@@ -1,175 +1,127 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useAuth } from '../../hooks/useAuth';
-import { useForm } from '../../hooks/useForm';
-import { usePasswordRecovery } from '../../hooks/usePasswordRecovery';
-import { validateEmail } from '../../utils/validation';
+import { useNavigate } from 'react-router-dom';
 import InputText from '../common/InputText';
 import Button from '../common/Button';
+import LoadingSpinner from '../common/LoadingSpinner';
 import ErrorMessage from '../common/ErrorMessage';
 import SuccessMessage from '../common/SuccessMessage';
+import { authService } from '../../services/authService';
+import { validateEmail } from '../../utils/validation';
 
 const ForgotPasswordForm = () => {
-  const { forgotPassword, isLoading, error, clearError } = useAuth();
-  const { 
-    saveRecoveryAttempt, 
-    canRequestRecovery, 
-    getTimeUntilNextAttempt,
-    getRemainingAttempts 
-  } = usePasswordRecovery();
-  
-  const [submitMessage, setSubmitMessage] = useState({
-    text: '',
-    type: '', // 'success' | 'error' | 'info'
-    email: ''
-  });
+  const [email, setEmail] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const navigate = useNavigate();
 
-  const { values, errors, handleChange, handleSubmit, isSubmitting } = useForm(
-    { email: '' },
-    (values) => {
-      const errors = {};
-      if (!values.email) {
-        errors.email = 'El email es requerido';
-      } else if (!validateEmail(values.email)) {
-        errors.email = 'Ingresa un email válido';
-      }
-      return errors;
-    },
-    async (formData) => {
-      const email = formData.email.toLowerCase().trim();
-      
-      clearError();
-      setSubmitMessage({ text: '', type: '', email: '' });
-
-      // Verificar límite de intentos
-      if (!canRequestRecovery(email)) {
-        const timeLeft = getTimeUntilNextAttempt(email);
-        const minutesLeft = Math.ceil(timeLeft / (1000 * 60));
-        
-        setSubmitMessage({
-          text: `Has alcanzado el límite de intentos. Inténtalo de nuevo en ${minutesLeft} minutos.`,
-          type: 'error',
-          email: email
-        });
-        return;
-      }
-
-      // Intentar enviar email de recuperación
-      const result = await forgotPassword(email);
-      
-      if (result.success) {
-        // Guardar intento exitoso
-        saveRecoveryAttempt(email);
-        
-        setSubmitMessage({
-          text: 'Se ha enviado un enlace de recuperación a tu email. Revisa tu bandeja de entrada y spam.',
-          type: 'success',
-          email: email
-        });
-        
-        // Limpiar formulario
-        // resetForm(); // Opcional: mantener email para referencia
-      } else {
-        // Mostrar error específico
-        let errorMessage = result.message || 'Error al enviar el email de recuperación';
-        
-        // Personalizar mensaje según el código de estado
-        if (result.statusCode === 404) {
-          errorMessage = 'No encontramos una cuenta con este email';
-        } else if (result.statusCode === 429) {
-          errorMessage = 'Demasiados intentos. Inténtalo más tarde';
-        }
-        
-        setSubmitMessage({
-          text: errorMessage,
-          type: 'error',
-          email: email
-        });
-      }
+  const handleEmailChange = (e) => {
+    const value = e.target.value;
+    setEmail(value);
+    setError('');
+    setSuccess('');
+    
+    // Validar email en tiempo real
+    if (value && !validateEmail(value)) {
+      setEmailError('Por favor ingresa un correo electrónico válido');
+    } else {
+      setEmailError('');
     }
-  );
+  };
 
-  const remainingAttempts = getRemainingAttempts(values.email);
-  const showRemainingAttempts = values.email && remainingAttempts < 3 && remainingAttempts > 0;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    // Validaciones
+    if (!email) {
+      setError('El correo electrónico es requerido');
+      return;
+    }
+    
+    if (!validateEmail(email)) {
+      setError('Por favor ingresa un correo electrónico válido');
+      return;
+    }
+
+    setIsLoading(true);
+    setError('');
+    setSuccess('');
+
+    try {
+      await authService.forgotPassword(email);
+      setSuccess('Te hemos enviado un enlace de recuperación a tu correo electrónico');
+      
+      // Redirigir después de 3 segundos
+      setTimeout(() => {
+        navigate('/auth/check-email', { state: { email } });
+      }, 3000);
+      
+    } catch (err) {
+      console.error('Error al enviar correo de recuperación:', err);
+      setError(
+        err.response?.data?.message || 
+        'Hubo un error al enviar el correo de recuperación. Por favor intenta nuevamente.'
+      );
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleBackToLogin = () => {
+    navigate('/auth/login');
+  };
 
   return (
     <div className="forgot-password-form">
-      <div className="form-header text-center mb-6">
-        <h2>¿Olvidaste tu contraseña?</h2>
-        <p className="text-gray-600">
-          No te preocupes, ingresa tu email y te enviaremos un enlace para recuperarla
+      <div className="form-header">
+        <h2 className="form-title">¿Olvidaste tu contraseña?</h2>
+        <p className="form-subtitle">
+          Usa tu correo para recuperarla
         </p>
       </div>
-      
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <InputText
-          name="email"
-          type="email"
-          placeholder="tu@email.com"
-          value={values.email}
-          onChange={handleChange}
-          error={errors.email}
-          autoComplete="email"
-          required
-        />
 
-        {/* Mostrar intentos restantes */}
-        {showRemainingAttempts && (
-          <div className="text-sm text-yellow-600 bg-yellow-50 p-2 rounded">
-            Te quedan {remainingAttempts} intentos en esta hora
-          </div>
-        )}
-
-        {/* Mensajes de estado */}
-        {submitMessage.text && (
-          <div className="message-container">
-            {submitMessage.type === 'success' && (
-              <SuccessMessage message={submitMessage.text} />
-            )}
-            {submitMessage.type === 'error' && (
-              <ErrorMessage message={submitMessage.text} />
-            )}
-          </div>
-        )}
+      <form onSubmit={handleSubmit} className="forgot-form">
+        <div className="input-group">
+          <label htmlFor="email" className="input-label">
+            Correo Electrónico
+          </label>
+          <InputText
+            id="email"
+            type="email"
+            value={email}
+            onChange={handleEmailChange}
+            placeholder="correo@ejemplo.com"
+            error={emailError}
+            disabled={isLoading}
+            autoComplete="email"
+            autoFocus
+          />
+        </div>
 
         {error && <ErrorMessage message={error} />}
+        {success && <SuccessMessage message={success} />}
 
-        <Button 
-          type="submit" 
-          disabled={isSubmitting || isLoading || (values.email && !canRequestRecovery(values.email))}
-          loading={isSubmitting || isLoading}
-          className="w-full"
-        >
-          {isSubmitting || isLoading ? 'Enviando...' : 'Enviar enlace de recuperación'}
-        </Button>
-
-        {/* Enlaces adicionales */}
-        <div className="text-center space-y-2">
-          <div>
-            <Link to="/login" className="text-blue-600 hover:text-blue-800">
-              Volver al inicio de sesión
-            </Link>
-          </div>
-          <div>
-            <span className="text-gray-500">¿No tienes cuenta? </span>
-            <Link to="/register" className="text-blue-600 hover:text-blue-800">
-              Regístrate aquí
-            </Link>
-          </div>
+        <div className="form-actions">
+          <Button
+            type="submit"
+            variant="primary"
+            disabled={isLoading || !email || emailError}
+            className="submit-button"
+          >
+            {isLoading ? <LoadingSpinner size="small" /> : 'Siguiente'}
+          </Button>
+          
+          <button
+            type="button"
+            onClick={handleBackToLogin}
+            className="back-button"
+            disabled={isLoading}
+          >
+            Volver al inicio de sesión
+          </button>
         </div>
       </form>
-
-      {/* Información adicional después de envío exitoso */}
-      {submitMessage.type === 'success' && (
-        <div className="mt-6 text-sm text-gray-600 bg-blue-50 p-4 rounded">
-          <h4 className="font-semibold mb-2">¿No encuentras el email?</h4>
-          <ul className="list-disc list-inside space-y-1">
-            <li>Revisa tu carpeta de spam o correo no deseado</li>
-            <li>Verifica que escribiste correctamente tu email</li>
-            <li>El enlace expira en 1 hora por seguridad</li>
-          </ul>
-        </div>
-      )}
     </div>
   );
 };

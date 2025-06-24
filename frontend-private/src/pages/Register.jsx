@@ -12,7 +12,10 @@ const Register = () => {
       {/* Lado izquierdo - Imagen del auto */}
       <div className="login-left">
         <div className="logo-container">
-          <img src="/images/brand/logo-seguro-white.png" alt="SEGURO" className="logo" />
+          <div className="secuko-logo">
+      <div className="secuko-main">SECURO</div>
+      <div className="secuko-sub">Serv</div>
+    </div>
         </div>
       </div>
 

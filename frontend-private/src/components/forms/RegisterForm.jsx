@@ -82,7 +82,7 @@ const RegisterForm = () => {
 
         <div className="form-links">
           <span>¿Ya tienes una cuenta? </span>
-          <a href="#login" className="link-register">Iniciar sesión</a>
+          <a href="login" className="link-register">Iniciar sesión</a>
         </div>
 
         <div className="form-submit">

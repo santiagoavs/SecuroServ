@@ -1,11 +1,26 @@
-/* Car Details Styles */
+/* Car Details Styles - CON SCROLL CORREGIDO */
+
+/* Asegurar scroll en el body y html */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
 .car-details-page {
   min-height: 100vh;
+  /* CAMBIADO: Removido background-attachment: fixed para mejor compatibilidad */
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
   background-image: url('/images/cars/backgrounds/toyota-supra-mk4-jdm-wallpaper 1.png');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  background-repeat: no-repeat;
   position: relative;
+  /* AGREGADO: Asegurar scroll */
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .car-details-page::before {
@@ -17,6 +32,8 @@
   bottom: 0;
   background: rgba(0, 0, 0, 0.7);
   z-index: 1;
+  /* AGREGADO: Prevenir interferencia con el scroll */
+  pointer-events: none;
 }
 
 .car-details-container {
@@ -25,12 +42,14 @@
   padding: 20px;
   max-width: 1400px;
   margin: 0 auto;
+  /* AGREGADO: Altura mínima para forzar scroll si es necesario */
+  min-height: calc(100vh - 40px);
 }
 
 /* Header */
 .car-details-header {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .logo-container {
@@ -46,6 +65,7 @@
     2px 2px 0px #cc0000,
     4px 4px 8px rgba(0, 0, 0, 0.5);
   margin: 0;
+  letter-spacing: 3px;
   transform: perspective(500px) rotateX(15deg);
 }
 
@@ -64,6 +84,8 @@
   grid-template-columns: 1fr 1fr;
   gap: 60px;
   align-items: start;
+  /* AGREGADO: Margen inferior para mejor scroll */
+  margin-bottom: 40px;
 }
 
 /* Sección de información */
@@ -71,8 +93,7 @@
   background: linear-gradient(145deg, rgba(204, 0, 0, 0.9) 0%, rgba(153, 0, 0, 0.9) 100%);
   border: 3px solid #cc0000;
   border-radius: 15px;
-  width: 630px  ;
-  padding: 30px;
+  padding: 40px;
   box-shadow: 
     0 0 30px rgba(204, 0, 0, 0.5),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
@@ -219,7 +240,7 @@
 .car-gallery-section {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
 }
 
 .main-image {
@@ -243,26 +264,24 @@
 .thumbnail-gallery {
   display: flex;
   gap: 20px;
+  justify-content: space-between;
+  max-width: 300px;
   margin: 0 auto;
 }
 
-.thumbnail-gallery:hover .car-thumbnail {
-  transform: scale(1.05);
-}
-
 .car-thumbnail {
-  display: grid;
-  width: 660px;
-  height: auto;
+  width: 400px;
+  height: 90px;
   object-fit: cover;
   border-radius: 10px;
   border: 3px solid rgba(255, 255, 255, 0.3);
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  flex: 1;
 }
 
-
+.car-thumbnail:hover,
 .car-thumbnail.active {
   border-color: #cc0000;
   transform: translateY(-3px);
@@ -312,6 +331,26 @@
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+/* AGREGADO: Estilo para scroll personalizado */
+.car-details-page::-webkit-scrollbar {
+  width: 12px;
+}
+
+.car-details-page::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
+}
+
+.car-details-page::-webkit-scrollbar-thumb {
+  background: linear-gradient(145deg, #cc0000, #990000);
+  border-radius: 6px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.car-details-page::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(145deg, #dd0000, #aa0000);
 }
 
 /* Responsive Design */
@@ -417,4 +456,9 @@
     width: 100px;
     height: 70px;
   }
+}
+
+/* AGREGADO: Smooth scroll para toda la página */
+html {
+  scroll-behavior: smooth;
 }
